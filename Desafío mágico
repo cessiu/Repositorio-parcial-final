@@ -1,0 +1,47 @@
+https://replit.com/join/xwsjslfscs-cesar-tomastom2
+
+def main():
+    num_eventos = int(input("Ingresa el número de eventos en el partido de Quidditch: "))
+
+    gryffindor_score = 0
+    slytherin_score = 0
+
+    for _ in range(num_eventos):
+        evento = input("Ingresa un evento (goal/snitch/foul): ")
+
+        if evento == "goal":
+            equipo = input("¿Qué equipo anotó (Gryffindor o Slytherin): ")
+            puntos = 10
+            actualizar_marcador(equipo, puntos, gryffindor_score, slytherin_score)
+        elif evento == "snitch":
+            equipo = input("¿Qué equipo atrapó la Snitch (Gryffindor o Slytherin): ")
+            puntos = 150
+            actualizar_marcador(equipo, puntos, gryffindor_score, slytherin_score)
+        elif evento == "foul":
+            equipo = input("¿Qué equipo cometió una falta (Gryffindor o Slytherin): ")
+            puntos = -30
+            actualizar_marcador(equipo, puntos, gryffindor_score, slytherin_score)
+        else:
+            print("Evento no válido. Ingresa 'goal', 'snitch' o 'foul'.")
+
+    imprimir_resultados(gryffindor_score, slytherin_score)
+
+def actualizar_marcador(equipo, puntos, gryffindor_score, slytherin_score):
+    if equipo == "Gryffindor":
+        gryffindor_score += puntos
+    elif equipo == "Slytherin":
+        slytherin_score += puntos
+
+def imprimir_resultados(gryffindor_score, slytherin_score):
+    print(f"Gryffindor: {gryffindor_score} puntos")
+    print(f"Slytherin: {slytherin_score} puntos")
+
+    if gryffindor_score > slytherin_score:
+        print("¡Gryffindor gana!")
+    elif slytherin_score > gryffindor_score:
+        print("¡Slytherin gana!")
+    else:
+        print("¡Es un empate!")
+
+if __name__ == "__main__":
+    main()
